@@ -70,6 +70,6 @@ bucket_name = "cloud-mail"
 
 # 4. 覆盖 B 账号的环境变量（这里配置多域名后缀）
 [env.production_b.vars]
-domain = ["dq.do", "9527.im", "cpan.pro", "e234.org", "863456.xyz"]  # 👈 这里填 B 账号准备绑定的多个域名
-admin = "admin@dq.do"                                # B 账号的管理员邮箱
+domain = ["9527.im", "cpan.pro", "e234.org", "863456.xyz"]  # 👈 这里填 B 账号准备绑定的多个域名
+admin = "admin@9527.im"                                # B 账号的管理员邮箱
 jwt_secret = "H3zkc6JKYwiZM9Es9Dsq"                    # 建议去密码生成器搞一串长字符

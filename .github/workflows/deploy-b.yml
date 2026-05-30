@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Account B (Multi-Domain)
 on:
   push:
     branches:
-      - main  # 当你向 main 分支推送代码时，自动触发 B 账号部署
+      - main  # 当你向 main 分支推送代码时自动触发
 
 jobs:
   deploy-b:
@@ -15,12 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
+          node-version: '20'  # 顺便升级到 Node 20，消除你截图里的黄色警告
 
       - name: Deploy to Cloudflare Workers (Account B)
         uses: cloudflare/wrangler-action@v3
@@ -28,4 +23,4 @@ jobs:
           apiToken: ${{ secrets.CF_B_API_TOKEN }}
           accountId: ${{ secrets.CF_B_ACCOUNT_ID }}
           workingDirectory: 'mail-worker'
-          environment: 'production_b' # 👈 极其重要：指定部署你在 wrangler.toml 里追加的 production_b 环境
+          environment: 'production_b' # 👈 认准你在 wrangler.toml 里写的那个 [env.production_b]
